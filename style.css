@@ -90,3 +90,13 @@ footer {
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
+.gif-section {
+    text-align: center;
+    margin: 20px;
+}
+
+.gif-section img {
+    width: 100%; /* или другой размер */
+    max-width: 600px; /* Ограничение по ширине */
+    border-radius: 10px;
+}
