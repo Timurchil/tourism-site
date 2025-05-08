@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Карта</title>
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Leaflet стили -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+</head>
+<body>
+    <header>
+        <h1>Карта популярных туристических мест</h1>
+        <nav>
+            <a href="index.html">Главная</a>
+            <a href="page2.html">Достопримечательности</a>
+            <a href="page3.html">Карта</a>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <div id="map"></div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; Туристические данные 2024\2025 </p>
+        <p>&copy; Designed by Sher</p>
+        <p>&copy; Data by WD</p>
+    </footer>
+
+    <!-- Leaflet скрипт -->
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script>
+        const map = L.map('map').setView([48.8566, 2.3522], 5); // Центр - Париж
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; OpenStreetMap contributors'
+        }).addTo(map);
+
+        // Пример меток
+        const locations = [
+            { name: "Эйфелева башня", coords: [48.8584, 2.2945] },
+            { name: "Колизей", coords: [41.8902, 12.4922] },
+            { name: "Саграда Фамилия", coords: [41.4036, 2.1744] }
+        ];
+
+        locations.forEach(loc => {
+            L.marker(loc.coords).addTo(map)
+                .bindPopup(loc.name);
+        });
+    </script>
+</body>
+</html>
