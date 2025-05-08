@@ -3,15 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Карта</title>
+    <title>Карта достопримечательностей</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
     <link rel="stylesheet" href="style.css">
-
-    <!-- Leaflet стили -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+    <style>
+        #map {
+            height: 600px;
+            width: 100%;
+            border-radius: 10px;
+            margin-top: 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+    </style>
 </head>
 <body>
     <header>
-        <h1>Карта популярных туристических мест</h1>
+        <h1>Карта достопримечательностей</h1>
         <nav>
             <a href="index.html">Главная</a>
             <a href="page2.html">Достопримечательности</a>
@@ -21,34 +28,48 @@
 
     <main>
         <section>
+            <h2>Достопримечательности Европы</h2>
             <div id="map"></div>
         </section>
     </main>
 
     <footer>
-        <p>&copy; Туристические данные 2024\2025 </p>
+        <p>&copy; Туристические данные 2024\2025</p>
         <p>&copy; Designed by Sher</p>
         <p>&copy; Data by WD</p>
     </footer>
 
-    <!-- Leaflet скрипт -->
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <script>
-        const map = L.map('map').setView([48.8566, 2.3522], 5); // Центр - Париж
+        const map = L.map('map').setView([45, 10], 5);
 
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '&copy; OpenStreetMap contributors'
         }).addTo(map);
 
-        // Пример меток
         const locations = [
-            { name: "Эйфелева башня", coords: [48.8584, 2.2945] },
-            { name: "Колизей", coords: [41.8902, 12.4922] },
-            { name: "Саграда Фамилия", coords: [41.4036, 2.1744] }
+            { name: "Эйфелева башня, Париж", coords: [48.8584, 2.2945] },
+            { name: "Лувр, Париж", coords: [48.8606, 2.3376] },
+            { name: "Версальский дворец, Версаль", coords: [48.8049, 2.1204] },
+            { name: "Музей д’Орсэ, Париж", coords: [48.8600, 2.3266] },
+            { name: "Виноградники Бордо, Франция", coords: [44.8378, -0.5792] },
+            { name: "Саграда Фамилия, Барселона", coords: [41.4036, 2.1744] },
+            { name: "Альгамбра, Гранада", coords: [37.1760, -3.5881] },
+            { name: "Музей Прадо, Мадрид", coords: [40.4138, -3.6921] },
+            { name: "Королевский дворец, Мадрид", coords: [40.4179, -3.7143] },
+            { name: "Алькасар, Севилья", coords: [37.3859, -5.9901] },
+            { name: "Нац. парк Тейде, Тенерифе", coords: [28.2724, -16.6425] },
+            { name: "Колизей, Рим", coords: [41.8902, 12.4922] },
+            { name: "Собор Св. Петра, Ватикан", coords: [41.9022, 12.4539] },
+            { name: "Сикстинская капелла, Ватикан", coords: [41.9029, 12.4545] },
+            { name: "Миланский собор, Милан", coords: [45.4642, 9.1916] },
+            { name: "Пизанская башня, Пиза", coords: [43.7229, 10.3966] },
+            { name: "Помпеи, Неаполь", coords: [40.7497, 14.4869] }
         ];
 
         locations.forEach(loc => {
-            L.marker(loc.coords).addTo(map)
+            L.marker(loc.coords)
+                .addTo(map)
                 .bindPopup(loc.name);
         });
     </script>
