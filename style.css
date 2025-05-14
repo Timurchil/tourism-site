@@ -100,3 +100,14 @@ footer {
     max-width: 600px; /* Ограничение по ширине */
     border-radius: 10px;
 }
+
+.gif-section1 {
+    text-align: center;
+    margin: 20px;
+}
+
+.gif-section1 img {
+    width: 100%; /* или другой размер */
+    max-width: 600px; /* Ограничение по ширине */
+    border-radius: 10px;
+}
