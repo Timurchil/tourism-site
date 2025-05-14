@@ -108,6 +108,6 @@ footer {
 
 .gif-section1 img {
     width: 100%; /* или другой размер */
-    max-width: 600px; /* Ограничение по ширине */
+    max-width: 800px; /* Ограничение по ширине */
     border-radius: 10px;
 }
